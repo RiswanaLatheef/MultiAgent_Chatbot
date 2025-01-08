@@ -1,0 +1,3 @@
+pydantic-settings
+fastapi[standard]
+groq

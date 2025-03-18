@@ -7,7 +7,7 @@ API_BASE_URL = "http://localhost:8000"
 
 # Set page configuration
 st.set_page_config(
-    page_title="Zia Assistants",
+    page_title="MultiAgentChatbot",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -118,7 +118,7 @@ def display_chat():
 
 # Authentication Interface
 if not st.session_state.logged_in:
-    st.title("🔑 Zia Assistant Authentication")
+    st.title("🔑 MultiAgentChatbot Assistant Authentication")
     tab1, tab2 = st.tabs(["Login", "Register"])
 
     with tab1:
@@ -176,13 +176,13 @@ else:
                 st.error(message)
 
     # Main Chat Area
-    st.header("Zia Assistant - All Chats")
+    st.header("MultiAgentChatbot - All Chats")
     chat_container = st.container()
 
     # Input Area
     with st.container():
         st.markdown('<div class="input-container">', unsafe_allow_html=True)
-        user_input = st.chat_input("Message Zia...")
+        user_input = st.chat_input("Message MultiAgentChatbot...")
         mode = st.radio("Select Mode:", ["default", "reason"], horizontal=True, key="mode_radio")
         st.session_state.mode = mode
         st.markdown('</div>', unsafe_allow_html=True)

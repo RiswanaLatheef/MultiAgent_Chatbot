@@ -1,7 +1,16 @@
 from pydantic_settings import BaseSettings
-class Settings(BaseSettings):
-    groq_api_key:str
-    class Config:
-        env_file=".env"
+import os
+from dotenv import load_dotenv
 
-settings=Settings()
+# Load environment variables from .env file
+load_dotenv()
+
+class Settings(BaseSettings):
+    GROQ_API_KEY: str = os.getenv("GROQ_API_KEY")  # Load API key safely
+    DEV_DB_URL: str = os.getenv("DEV_DB_URL")  # Uncomment if needed
+
+    class Config:
+        env_file = ".env"
+
+# Instantiate settings
+settings = Settings()
